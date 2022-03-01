@@ -4,7 +4,7 @@ import { LoaderFunction, useLoaderData, useCatch, useParams } from "remix";
 import type { Challenge } from "@prisma/client";
 import { db } from "~/utils/db.server";
 
-import { Stopwatch } from "~/components/Stopwatch";
+import { Stopwatch } from "~/components";
 
 type LoaderData = { challenge: Challenge | null };
 

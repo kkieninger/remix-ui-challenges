@@ -4,6 +4,8 @@ import { Outlet, Link, useLoaderData, useNavigate } from "remix";
 import type { Challenge } from "@prisma/client";
 import { db } from "~/utils/db.server";
 
+import { Sidebar } from "~/components";
+
 type LoaderData = { challenges: Challenge[] };
 
 export let loader: LoaderFunction = async () => {
@@ -39,6 +41,9 @@ const ChallengesRoute = () => {
         <div>
           <div>
             <Link to=".">Get a random challenge</Link>
+            <Sidebar
+              challenges={challenges}
+            />
             <label htmlFor="challenges">
               Challenges
               <select

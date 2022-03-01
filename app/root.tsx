@@ -30,14 +30,14 @@ export const links: LinksFunction = () => {
 };
 
 const Document = ({ children, title = "UI Challenges" }: { children: ReactElement | ReactElement[]; title?: string; }) => (
-  <html lang="en" className="text-gray-100 bg-slate-900">
+  <html lang="en">
     <head>
       <meta charSet="utf-8" />
       <Meta />
       <title>{title}</title>
       <Links />
     </head>
-    <body>
+    <body className="min-h-screen text-gray-100 bg-slate-900">
       {children}
       <Scripts />
       <LiveReload />
