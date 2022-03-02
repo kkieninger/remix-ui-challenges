@@ -4,7 +4,7 @@ import { useLoaderData, useCatch, useParams } from "remix";
 import type { Challenge } from "@prisma/client";
 import { db } from "~/utils/db.server";
 
-import { Stopwatch } from "~/components";
+import { Stopwatch, Solution } from "~/components";
 
 type LoaderData = { randomChallenge: Challenge };
 
@@ -51,22 +51,24 @@ const ChallengeIndexRoute = () => {
 
   return (
     <div>
-      <Stopwatch expiration={randomChallenge?.timeAllotted} />
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-4xl font-thin">
+          challenge.{' '}
+          <span className="font-normal">
+            {randomChallenge.title}
+          </span>
+        </h2>
+        <Stopwatch expiration={randomChallenge?.timeAllotted} />
+      </div>
       <div>
-        <p>Here's a random challenge:</p>
-        <p>{randomChallenge?.title}</p>
-        <p>{randomChallenge?.description}</p>
-        <p>
-          {`${Number(randomChallenge?.timeAllotted) / 60} minutes`}
-        </p>
-
-        <p>To implement, navigate to <code>~/app/routes/challenges/index.tsx</code> to begin.</p>
+        {/* <h2 className="text-4xl font-normal"></h2> */}
+        <p className="mb-2 font-semibold text-sky-300">Here's a random challenge for you:</p>
+        <p className="mb-2">{randomChallenge?.description}</p>
       </div>
 
-      <div>
+      <Solution path={`~/app/routes/challenges/index.tsx`}>
         {/* @TODO - Implement */}
-
-      </div>
+      </Solution>
     </div>
   )
 }

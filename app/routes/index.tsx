@@ -2,7 +2,7 @@
  import { Logos } from "~/components";
 
 const Index = () => (
-  <div className="flex justify-center flex-col items-center min-h-screen pb-60">
+  <div className="flex justify-center flex-col items-center text-center min-h-screen pb-60 px-4">
     <h1 className="mb-5 text-7xl">
       UI Challenges
     </h1>
@@ -14,7 +14,7 @@ const Index = () => (
         <li>
           <Link
             to="challenges"
-            className="text-slate-400 text-xl transition-all ease-in hover:text-slate-500 mb-6 block"
+            className="text-sky-500 text-xl transition-all ease-in hover:text-slate-300 mb-6 block"
           >
             See challenges
           </Link>

@@ -37,7 +37,7 @@ const Document = ({ children, title = "UI Challenges" }: { children: ReactElemen
       <title>{title}</title>
       <Links />
     </head>
-    <body className="min-h-screen text-gray-100 bg-slate-900">
+    <body className="min-h-screen text-gray-100 bg-slate-900 lowercase">
       {children}
       <Scripts />
       <LiveReload />

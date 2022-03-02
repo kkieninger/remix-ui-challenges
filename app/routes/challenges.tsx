@@ -1,10 +1,10 @@
 import type { LoaderFunction } from "remix";
-import { Outlet, Link, useLoaderData, useNavigate } from "remix";
+import { Outlet, Link, useLoaderData } from "remix";
 
 import type { Challenge } from "@prisma/client";
-import { db } from "~/utils/db.server";
 
-import { Sidebar } from "~/components";
+import { db } from "~/utils/db.server";
+import { Layout } from "~/components";
 
 type LoaderData = { challenges: Challenge[] };
 
@@ -20,49 +20,35 @@ export let loader: LoaderFunction = async () => {
 
 const ChallengesRoute = () => {
   const { challenges } = useLoaderData<LoaderData>();
-  const navigate = useNavigate();
 
   return (
-    <div>
-      <header>
-        <div>
-          <h1>
+    <Layout challenges={challenges}>
+      <div>
+        <header>
+          <div className="flex justify-end mb-4">
             <Link
               to="/"
               title="UI Challenges"
               aria-label="UI Challenges"
+              className="text-sky-500 hover:text-sky-300 transition ease-in ml-4"
             >
-              Challenges
+              home
             </Link>
-          </h1>
-        </div>
-      </header>
-      <main>
-        <div>
-          <div>
-            <Link to=".">Get a random challenge</Link>
-            <Sidebar
-              challenges={challenges}
-            />
-            <label htmlFor="challenges">
-              Challenges
-              <select
-                name="challenges"
-                id="challenges"
-                onChange={(e) => navigate(`./${e.target.value}`, { replace: true })}
-              >
-                {challenges.map((challenge) => (
-                  <option key={challenge.id} value={challenge.id}>{challenge.title}</option>
-                ))}
-              </select>
-            </label>
+            <Link
+              to="/about"
+              title="UI Challenges"
+              aria-label="UI Challenges"
+              className="text-sky-500 hover:text-sky-300 transition ease-in ml-4"
+            >
+              about
+            </Link>
           </div>
-          <div>
-            <Outlet />
-          </div>
-        </div>
-      </main>
-    </div>
+        </header>
+        <main>
+          <Outlet />
+        </main>
+      </div>
+    </Layout>
   );
 }
 

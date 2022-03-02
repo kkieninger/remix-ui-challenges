@@ -10,12 +10,12 @@ const getChallenges = () => (
   [
     {
       title: "Like Button",
-      description: `Implement a like button in React. The button should be able to toggle between "like" and "unlike" statuses`,
+      description: `Implement a social media "like" button in React. The button should be able to toggle between "like" and "unlike" statuses`,
       timeAllotted: FIFTEEN_MINUTES,
     },
     {
       title: "Authenticated Content",
-      description: `Simulate an authenticated user flow in React.`,
+      description: `Simulate an authenticated user flow in React. Try detecting an "authenticated" session via a cookie or localStorage value. "Unauthenticated" users should not be able to access "authenticated" UI screens.`,
       timeAllotted: THIRTY_MINUTES,
     },
     {
